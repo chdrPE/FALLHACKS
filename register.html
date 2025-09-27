@@ -1,46 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>StreakIn | Registration</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/register.css" />
+  <!-- defer so the script runs after parsing -->
+  <script src="js/register.js" defer></script>
 </head>
 <body>
+
+  <!-- Canvas for animated background -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
 
   <div class="streakin-container">
     <h1 class="streakin-title">Registration</h1>
 
-    <form id="streakin-registration-form" class="streakin-form">
+    <form id="streakin-registration-form" class="streakin-form" action="#" method="POST">
       <div class="streakin-form-group">
         <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="name" name="name" required />
       </div>
 
       <div class="streakin-form-group">
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="email" required />
       </div>
 
       <div class="streakin-form-group">
         <label for="nickname">Nickname</label>
-        <input type="text" id="nickname" name="nickname" required>
-      </div>
-
-      <div class="streakin-form-group">
-        <label for="university">University</label>
-        <input type="text" id="university" name="university" required>
+        <input type="text" id="nickname" name="nickname" required />
       </div>
 
       <div class="streakin-form-group">
         <label for="course">Course Load</label>
-        <input type="text" id="course" name="course" required>
+        <input type="text" id="course" name="course" required />
       </div>
 
       <div class="streakin-form-group">
         <label for="difficulty">Study Intensity</label>
         <select id="difficulty" name="difficulty" required>
-          <option value="" disabled selected>Select difficulty</option>
+          <option value="" disabled selected>Select</option>
           <option value="easy">Easy</option>
           <option value="medium">Medium</option>
           <option value="hard">Hard</option>
@@ -48,12 +48,24 @@
       </div>
 
       <div class="streakin-form-group">
-        <label for="mehod">Study Method</label>
+        <label for="method">Study Method</label>
         <select id="method" name="method" required>
-            <option value="" disabled selected>Select study method</option>
-            <option value="Pomodoro">Pomodoro</option>
-            <option value="Feynman">Feynman</option>
-            <option value="Acitve Recall">Active Recall</option>
+          <option value="" disabled selected>Select</option>
+          <option value="Pomodoro">Pomodoro</option>
+          <option value="Feynman">Feynman</option>
+          <option value="Active Recall">Active Recall</option>
+        </select>
+      </div>
+
+      <div class="streakin-form-group">
+        <label for="institution">Select Institution</label>
+        <select id="institution" name="difficulty" required>
+          <option value="" disabled selected>Select</option>
+          <option value="Simon Fraser University">Simon Fraser University</option>
+          <option value="University of British Columbia">University of British Columbia</option>
+          <option value="Douglas College">Douglas College</option>
+          <option value="Langara College">Langara College</option>
+          <option value="British Columbia Institute of Technology">British Columbia Institute of Technology</option>
         </select>
       </div>
 

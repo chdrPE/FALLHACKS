@@ -1,0 +1,106 @@
+/* ========= Variables / Paleta ========= */
+:root {
+  --navy: #001f3f;   /* acentos */
+  --orange: #ff851b;
+  --red: #ff3c00;    /* fire red */
+  --black: #000;
+  --white: #fff;
+
+  --surface-1: rgba(255,255,255,0.04);
+  --surface-2: rgba(255,255,255,0.06);
+  --border: rgba(255,255,255,0.10);
+  --muted: rgba(255,255,255,0.60);
+  --muted-2: rgba(255,255,255,0.50);
+  --track: rgba(255,255,255,0.12);
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--black);
+  color: var(--white);
+}
+
+/* ========= Layout del timer ========= */
+.page { min-height: 100%; display: grid; place-items: center; padding: 24px; }
+.container {
+  width: min(1200px, 100%);
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 32px;
+}
+@media (max-width: 1024px) { .container { grid-template-columns: 1fr; } }
+
+.card {
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  background: var(--surface-1);
+  padding: 24px;
+}
+
+/* Timer */
+.timer-card { display: grid; place-items: center; gap: 20px; position: relative; }
+.ring-wrap { position: relative; width: 360px; height: 360px; }
+.ring-svg { display: block; transform: rotate(-90deg); filter: drop-shadow(0 0 30px rgba(255,133,27,0.25)); }
+.ring-track {
+  fill: none; stroke: var(--track); stroke-width: 20; stroke-linecap: round;
+}
+.ring-progress {
+  fill: none; stroke: var(--orange); stroke-width: 20; stroke-linecap: round;
+  stroke-dasharray: 0;  /* se define en JS */
+  stroke-dashoffset: 0; /* se define en JS */
+  transition: stroke-dashoffset .2s linear, stroke .2s linear;
+}
+.ring-progress.urgent { stroke: var(--red); filter: drop-shadow(0 0 30px rgba(255,60,0,0.35)); }
+
+.ring-center { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; }
+.time { font-size: 64px; font-weight: 700; letter-spacing: .5px; }
+.time.pulse { animation: pulse 1s infinite; }
+.round-label { margin-top: 8px; color: var(--muted); font-size: 18px; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.5} }
+
+/* Controles */
+.controls { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+.btn {
+  appearance: none; border: 1px solid var(--border);
+  border-radius: 16px; padding: 12px 18px; font-weight: 600;
+  background: var(--surface-2); color: var(--white); cursor: pointer;
+  transition: transform .03s ease, background .2s ease;
+}
+.btn:active { transform: translateY(1px); }
+.btn-primary { background: var(--orange); color: var(--white); }
+.btn-primary:hover { filter: brightness(1.05); }
+.btn-primary:disabled { opacity: .35; cursor: not-allowed; }
+.btn-ghost { background: var(--surface-2); }
+.btn-toggle { background: rgba(255,255,255,0.10); }
+
+.toggle { display: inline-flex; gap: 8px; align-items: center;
+  background: var(--surface-2); border: 1px solid var(--border); padding: 12px 16px; border-radius: 16px; }
+
+.paused-banner {
+  font-size: 14px; color: #ffd39b; border: 1px solid rgba(255,180,120,.35);
+  background: rgba(255,180,120,.08); padding: 8px 12px; border-radius: 12px;
+}
+
+.shortcuts { font-size: 12px; color: var(--muted-2); }
+kbd { background: rgba(255,255,255,0.10); border-radius: 6px; padding: 2px 6px; }
+
+/* Panel lateral */
+.side-panel { background: var(--surface-2); }
+.panel-title { margin: 0 0 12px; font-size: 20px; font-weight: 700; }
+.round-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.round-item {
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(0,0,0,0.4); border: 1px solid var(--border);
+  border-radius: 16px; padding: 12px 14px;
+}
+.round-left { display: flex; align-items: center; gap: 12px; }
+.badge { width: 18px; height: 18px; border-radius: 50%; display: inline-block; }
+.badge.in-progress { background: var(--orange); }
+.badge.completed   { background: var(--orange); clip-path: polygon(14% 52%, 0 66%, 0 80%, 14% 94%, 47% 61%, 100% 8%, 100% 0, 47% 53%); } /* check estilizado */
+.badge.upcoming    { background: rgba(255,255,255,0.3); }
+.round-meta { color: var(--muted); font-size: 13px; }
+.round-go { font-size: 12px; background: rgba(255,255,255,0.10); padding: 6px 10px; border-radius: 10px; border: 1px solid var(--border); }
+
+.panel-meta { margin-top: 16px; color: var(--muted); }
