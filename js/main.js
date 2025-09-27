@@ -1,44 +1,30 @@
-// === StreakIn Theme: Blue background + cyan & white particles ===
-
-// Set background color
-document.body.style.backgroundColor = '#0A2540'; // deep blue
-
-// Create canvas for particles
+// Create canvas
 const canvas = document.createElement('canvas');
-canvas.style.position = 'fixed';
-canvas.style.top = '0';
-canvas.style.left = '0';
-canvas.style.width = '100%';
-canvas.style.height = '100%';
-canvas.style.zIndex = '-1';
-canvas.style.pointerEvents = 'none';
+canvas.id = 'bg-canvas';
 document.body.appendChild(canvas);
 
 const ctx = canvas.getContext('2d');
-let particles = [];
 
+// Resize canvas to fit full page
 function resizeCanvas() {
   canvas.width  = document.documentElement.scrollWidth;
   canvas.height = document.documentElement.scrollHeight;
 }
-
 window.addEventListener('resize', resizeCanvas);
 window.addEventListener('scroll', resizeCanvas);
 resizeCanvas();
 
-window.addEventListener('resize', resizeCanvas);
-resizeCanvas();
-
-// Create particles (white & cyan)
+// Create particles
+let particles = [];
 function createParticles() {
   particles = [];
-  const numParticles = 50;
+  const numParticles = 30;
   for (let i = 0; i < numParticles; i++) {
     particles.push({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
-      radius: Math.random() * 10 + 5,
-      color: Math.random() < 0.5 ? 'white' : '#2EE6FF', // mix of white and cyan
+      radius: Math.random() * 12 + 8,
+      color: Math.random() < 0.5 ? 'white' : '#2EE6FF',
       speedX: (Math.random() - 0.5) * 0.5,
       speedY: (Math.random() - 0.5) * 0.5
     });
@@ -59,7 +45,6 @@ function animateParticles() {
     p.x += p.speedX;
     p.y += p.speedY;
 
-    // Bounce particles softly off edges
     if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
     if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
   }
@@ -67,29 +52,3 @@ function animateParticles() {
   requestAnimationFrame(animateParticles);
 }
 animateParticles();
-
-// Optional: style buttons to match theme
-const style = document.createElement('style');
-style.textContent = `
-  .streakin-header {
-    background: #0D2E57; /* darker blue for header */
-    color: white;
-  }
-
-  .streakin-lockin-btn, .streakin-submit-btn {
-    background: #2EE6FF; /* cyan */
-    color: #0A2540;      /* dark blue text */
-  }
-
-  .streakin-lockin-btn:hover, .streakin-submit-btn:hover {
-    filter: brightness(0.9);
-  }
-
-  .streakin-container {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    backdrop-filter: blur(10px);
-    border-radius: 1rem;
-  }
-`;
-document.head.appendChild(style);

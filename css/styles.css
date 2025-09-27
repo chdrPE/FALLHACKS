@@ -1,49 +1,96 @@
 :root {
-  --blue-bg: #0A2540;    /* deep blue background */
-  --cyan: #2EE6FF;       /* accent cyan */
+  --blue-bg: #0A2540;
+  --header-dark: #0D2E57;
+  --cyan: #2EE6FF;
   --white: #ffffff;
-  --header-dark: #0D2E57; /* slightly darker blue for header */
 }
 
-body, html {
+/* ========== GLOBAL ========== */
+html, body {
   height: 100%;
-  font-family: Arial, sans-serif;
-  background: var(--black);  /* entire site background black */
-}
-
-
-/* HERO SECTION */
-.hero {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--blue-bg);
   color: var(--white);
+  display: block;
+  scroll-behavior: smooth;
 }
 
-#bg-canvas {
+a {
+  text-decoration: none;
+}
+
+/* ========== HEADER ========== */
+.streakin-header {
+  background: var(--header-dark);
+  color: var(--white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2rem;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  z-index: -1;
-  pointer-events: none;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  z-index: 1000;
+  min-height: 80px;
 }
 
-.overlay {
+.streakin-header-left,
+.streakin-header-right {
+  display: flex;
+  align-items: center;
+}
+
+.streakin-logo {
+  height: 150px;            /* ✅ fixed size so it doesn’t overflow */
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.streakin-lockin-btn {
+  background: var(--cyan);
+  color: var(--blue-bg);
+  border: none;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+  white-space: nowrap;
+}
+
+.streakin-lockin-btn:hover {
+  background: var(--white);
+  transform: scale(1.05);
+}
+
+/* ========== HERO SECTION ========== */
+.hero {
   position: relative;
+  height: 100vh;
+  padding-top: 100px; /* space for header */
+  display: flex;
+  flex-direction: column;   /* stack vertically */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   z-index: 1;
+}
+
+.hero .overlay{
+  position:relative;
+  background:transparent;
+  z-index:2;
 }
 
 .title {
   font-size: 4rem;
   margin-bottom: 2rem;
-  letter-spacing: 1px;
-  text-shadow: 0 0 15px rgba(46, 230, 255, 0.8); /* cyan glow */
+  text-shadow: 0 0 15px rgba(46, 230, 255, 0.8);
 }
 
 .title .cursive {
@@ -55,8 +102,6 @@ body, html {
   padding: 1rem 2.5rem;
   font-size: 1.2rem;
   font-weight: bold;
-  text-transform: uppercase;
-  text-decoration: none;
   background: var(--cyan);
   color: var(--blue-bg);
   border-radius: 8px;
@@ -69,79 +114,91 @@ body, html {
   box-shadow: 0 4px 15px rgba(46, 230, 255, 0.5);
 }
 
-/* ============ StreakIn Registration Page ============ */
+/* ========== BACKGROUND CANVAS ========== */
+#bg-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
 
-body {
-  font-family: 'Poppins', sans-serif;
-  background-color: #001F3F; /* Navy Blue */
-  color: white;
+/* ========== INFO SECTION ========== */
+.streakin-info-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: 5rem auto;
+  padding: 2rem;
+  gap: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.streakin-info-text {
+  flex: 1;
+}
+
+.streakin-info-text h2 {
+  font-size: 2rem;
+  color: var(--cyan);
+  margin-bottom: 1rem;
+}
+
+.streakin-info-text p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.streakin-info-image {
+  flex: 1;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
 }
 
-/* Container */
-.streakin-container {
-  background-color: white;
-  color: black;
-  padding: 2rem;
-  border-radius: 1rem;
+.streakin-info-image img {
   width: 100%;
-  max-width: 400px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-}
-
-/* Title */
-.streakin-title {
-  text-align: center;
-  margin-bottom: 1.5rem;
-  color: #001F3F;
-  font-size: 1.8rem;
-}
-
-/* Form */
-.streakin-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-/* Form Groups */
-.streakin-form-group {
-  display: flex;
-  flex-direction: column;
-}
-
-.streakin-form-group label {
-  font-weight: 600;
-  margin-bottom: 0.3rem;
-}
-
-.streakin-form-group input,
-.streakin-form-group select {
-  padding: 0.6rem;
+  max-width: 450px;
   border-radius: 0.5rem;
-  border: 1px solid #ccc;
-  font-size: 1rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
 
-/* Submit Button */
-.streakin-submit-btn {
-  background-color: #001F3F;
-  color: white;
-  padding: 0.8rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  margin-top: 1rem;
-  transition: background-color 0.2s ease;
-}
+/* ========== RESPONSIVE ========== */
+@media (max-width: 800px) {
+  .title {
+    font-size: 2.8rem;
+  }
 
-.streakin-submit-btn:hover {
-  background-color: black;
-}
+  .streakin-info-section {
+    flex-direction: column;
+    text-align: center;
+  }
 
-    
+  .streakin-info-text, 
+  .streakin-info-image {
+    flex: none;
+    width: 100%;
+  }
+
+  .streakin-info-image img {
+    max-width: 100%;
+  }
+
+  .streakin-header {
+    flex-direction: column;
+    gap: 0.5rem;
+    min-height: auto;
+    padding: 1rem;
+  }
+
+  .streakin-header-left, 
+  .streakin-header-right {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home • Study Focus</title>
+  <link rel="stylesheet" href="css/home.css">
+</head>
+<body class="home-page">
+  <!-- Background -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <div class="page" role="application">
+    <header>
+      <nav class="nav" aria-label="primary">
+        <div class="brand" aria-label="Home">
+          <span class="dot" aria-hidden="true"></span>
+          <span>Home</span>
+        </div>
+        <div class="clock" aria-live="polite" id="clock">--:-- --</div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="cards">
+        <!-- Activity -->
+        <article class="card" aria-labelledby="act-title">
+          <div class="card-header">
+            <h2 class="card-title" id="act-title">Your activity</h2>
+            <div class="card-sub" id="week-range">This week</div>
+          </div>
+
+          <div class="activity">
+            <div class="metric">
+              <div class="label">Current streak</div>
+              <div class="value"><span class="fire">🔥</span><span id="streak-days">12</span><span>days</span></div>
+              <div class="hint">3 skips allowed / month</div>
+            </div>
+            <div class="metric">
+              <div class="label">Hours studied</div>
+              <div class="value"><span id="hours-done">8.5</span><span>h</span></div>
+              <div class="hint" id="done-hint">Mon–Sun</div>
+            </div>
+            <div class="metric">
+              <div class="label">Hours remaining</div>
+              <div class="value"><span id="hours-left">13.5</span><span>h</span></div>
+              <div class="hint">to hit weekly goal</div>
+            </div>
+            <div class="metric">
+              <div class="label">Skips used</div>
+              <div class="value"><span id="skips-used">1</span><span>/ 3</span></div>
+              <div class="hint">streak protection</div>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="cta-row">
+            <button class="cta" id="start-btn" aria-describedby="cta-note">Start studying</button>
+            <div class="cta-note" id="cta-note">You need <strong id="today-needed">5</strong> hours to complete today</div>
+          </div>
+
+          <!-- Weekly goal bar (progress) -->
+          <div class="goal-wrap" aria-hidden="false">
+            <div class="goal-label">Weekly goal</div>
+            <div class="goal-bar">
+              <div class="goal-bar__fill" id="weekly-goal-fill" style="width: 28%;"></div>
+            </div>
+            <div class="goal-legend"><span id="goal-legend-text">8.5 / 22 h</span></div>
+          </div>
+        </article>
+
+        <!-- Friends / Strata -->
+        <article class="card" aria-labelledby="friends-title">
+          <div class="card-header">
+            <h2 class="card-title" id="friends-title">Friends’ progress</h2>
+            <div class="card-sub">Weekly progress (4 ticks = 4 weeks)</div>
+          </div>
+
+          <!-- Server-side/HTML placeholders (visible even if JS fails).
+               JS will replace these with animated bars. -->
+          <div class="friends" id="friends-list">
+            <div class="friend">
+              <div class="friend-name">Rodrigo</div>
+              <div class="progress">
+                <div class="bar" style="width: 85%;"></div>
+                <div class="ticks"><span></span><span></span><span></span><span></span></div>
+              </div>
+              <div class="streak-count">15🔥</div>
+            </div>
+            <div class="friend">
+              <div class="friend-name">Franco</div>
+              <div class="progress">
+                <div class="bar" style="width: 52%;"></div>
+                <div class="ticks"><span></span><span></span><span></span><span></span></div>
+              </div>
+              <div class="streak-count">4🔥</div>
+            </div>
+            <div class="friend">
+              <div class="friend-name">Diego</div>
+              <div class="progress">
+                <div class="bar" style="width: 89%;"></div>
+                <div class="ticks"><span></span><span></span><span></span><span></span></div>
+              </div>
+              <div class="streak-count">21🔥</div>
+            </div>
+            <div class="friend">
+              <div class="friend-name">Cesar</div>
+              <div class="progress">
+                <div class="bar" style="width: 47%;"></div>
+                <div class="ticks"><span></span><span></span><span></span><span></span></div>
+              </div>
+              <div class="streak-count">2🔥</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer>Stay focused. Future you says thanks.</footer>
+  </div>
+
+  <!-- Floating + -->
+  <button class="fab" aria-label="Add" title="Add">+</button>
+
+  <!-- Load JS (matches your folder layout) -->
+  <script src="js/home.js" defer></script>
+</body>
+</html>
+
+
+

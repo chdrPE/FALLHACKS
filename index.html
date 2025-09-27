@@ -1,48 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Streak Lock-in</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>StreakIn | Pomodoro Tracker</title>
 
-  <!-- Google Font for cursive -->
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/styles.css"/>
 </head>
 <body>
-  <!-- HEADER -->
-  <header class="streakin-header">
-    <div class="streakin-header-left">
-      <button class="streakin-lockin-btn">LOCK IN NOW</button>
+
+
+<!-- HEADER -->
+<header class="streakin-header">
+  <div class="streakin-header-left">
+    <img src="images/ChatGPT_Image_Sep_27__2025_at_01_19_56_PM-removebg-preview.png" alt="StreakIn Logo" class="streakin-logo">
+  </div>
+
+  <div class="streakin-header-right">
+    <button class="streakin-lockin-btn">LOCK IN NOW</button>
+  </div>
+</header>
+
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="overlay">
+      <h1 class="title">
+        Ready to <span class="cursive">lock in</span>?
+      </h1>
+      <a href="register.html" class="btn">Register</a>
+    </div>
+  </section>
+
+  <!-- INFO SECTION BELOW HERO -->
+  <section class="streakin-info-section">
+    <div class="streakin-info-text">
+      <h2>Why the Pomodoro Technique Works ⏱</h2>
+      <p>
+        Consistency beats intensity. With the Pomodoro method, students maintain 
+        focused bursts of learning followed by short breaks, leading to better retention 
+        and improved GPA over time.
+      </p>
+      <p>
+        Our users have reported <strong>up to 30% improvement</strong> in productivity 
+        just by tracking their daily streaks and using focused study blocks.
+      </p>
     </div>
 
-    <div class="streakin-header-right">
-      <img src="images/ChatGPT_Image_Sep_27__2025_at_01_19_56_PM-removebg-preview.png" alt="StreakIn Logo" class="streakin-logo">
+    <div class="streakin-info-image">
+      <img src="images\ChatGPT Image Sep 27, 2025 at 02_05_15 PM.png" alt="Pomodoro Effectiveness Graph">
     </div>
-  </header>
-
-<!-- HERO SECTION -->
-<section class="hero">
-  <canvas id="bg-canvas"></canvas>
-  <div class="overlay">
-    <h1 class="title">Ready to <span class="cursive">lock in</span>?</h1>
-    <a href="login.html" class="btn">Register</a>
-  </div>
-</section>
-
-<!-- INFO SECTION BELOW -->
-<section class="streakin-info-section">
-  <div class="streakin-info-text">
-    <h2>Why the Pomodoro Technique Works ⏱</h2>
-    <p>Consistency beats intensity. With the Pomodoro method, students maintain focused bursts of learning followed by short breaks, leading to better retention and improved GPA over time.</p>
-    <p>Our users have reported <strong>up to 30% improvement</strong> in productivity just by tracking their daily streaks and using focused study blocks.</p>
-  </div>
-
-  <div class="streakin-info-image">
-    <img src="images/ChatGPT Image Sep 27, 2025 at 02_05_15 PM.png" alt="Pomodoro Effectiveness Graph">
-  </div>
-</section>
+  </section>
 
   <script src="js/main.js"></script>
 </body>

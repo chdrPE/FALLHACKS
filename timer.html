@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>StreakIn — Timer</title>
+  <link rel="stylesheet" href="css/style-timer.css" />
+</head>
+<body>
+  <section class="hero">
+    <!-- Fondo animado propio de la página -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Contenido encima del canvas -->
+    <div class="overlay">
+      <main class="timer-wrap">
+        <!-- Panel principal -->
+        <section class="panel timer-panel">
+          <div class="ring-wrap">
+            <!-- 360x360, stroke=20 => r=170 -->
+            <svg width="360" height="360" viewBox="0 0 360 360" class="ring">
+              <circle cx="180" cy="180" r="170" class="track"></circle>
+              <circle id="progress" cx="180" cy="180" r="170" class="progress"></circle>
+            </svg>
+            <div class="center">
+              <div id="time" class="time">40:00</div>
+              <div id="roundLabel" class="subtle">Round 1</div>
+            </div>
+          </div>
+
+          <div class="controls">
+            <button id="startPause" class="btn btn-primary">Start</button>
+            <button id="reset" class="btn">Reset</button>
+            <button id="next" class="btn btn-accent">Next</button>
+
+            <button id="sound" class="btn" aria-pressed="true">Sound: ON</button>
+            <label class="toggle">
+              <input type="checkbox" id="autopause" checked />
+              <span>Auto-pause on tab change</span>
+            </label>
+          </div>
+
+          <p id="pauseReason" class="notice hidden">Paused — tab/screen changed</p>
+          <p class="hint">Shortcuts: <kbd>Space</kbd> start/pause · <kbd>R</kbd> reset · <kbd>N</kbd> next</p>
+        </section>
+
+        <!-- Panel lateral de rondas -->
+        <aside class="panel side">
+          <h2 class="panel-title">Rounds</h2>
+          <ul id="rounds" class="rounds"></ul>
+          <div class="meta">Completed: <strong id="completed">0</strong> / <span id="total">3</span></div>
+        </aside>
+      </main>
+    </div>
+  </section>
+
+  <script src="js/timer.js" defer></script>
+</body>
+</html>
