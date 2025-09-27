@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>StreakIn – Study Timer</title>
+  <link rel="stylesheet" href="style-timer.css" />
+</head>
+<body>
+  <main class="page">
+    <div class="container">
+      <!-- Tarjeta del timer -->
+      <section class="card timer-card" aria-label="Temporizador de estudio">
+        <div class="ring-wrap">
+          <svg class="ring-svg" width="360" height="360" viewBox="0 0 360 360" aria-hidden="true">
+            <circle class="ring-track" cx="180" cy="180" r="170"></circle>
+            <circle class="ring-progress" cx="180" cy="180" r="170"></circle>
+          </svg>
+
+          <div class="ring-center">
+            <div id="time" class="time">20:00</div>
+            <div id="roundLabel" class="round-label">Round 1</div>
+          </div>
+        </div>
+
+        <div class="controls">
+          <button id="btnStartPause" class="btn btn-primary">Start</button>
+          <button id="btnReset" class="btn btn-ghost">Reset</button>
+          <button id="btnNext" class="btn btn-primary">Next</button>
+
+          <button id="btnSound" class="btn btn-toggle" title="Sound">Sound: On</button>
+          <label class="toggle">
+            <input id="chkAutoPause" type="checkbox" checked />
+            <span>Auto-pause on tab change</span>
+          </label>
+        </div>
+
+        <p id="pausedBanner" class="paused-banner" hidden>
+          Paused — tab/screen changed
+        </p>
+
+        <p class="shortcuts">
+          Shortcuts:
+          <kbd>Space</kbd> start/pause · <kbd>R</kbd> reset · <kbd>N</kbd> next
+        </p>
+      </section>
+
+      <!-- Panel lateral con rondas -->
+      <aside class="card side-panel" aria-label="Rondas">
+        <h2 class="panel-title">Rounds</h2>
+        <ul id="roundList" class="round-list">
+          <!-- se rellena desde JS -->
+        </ul>
+        <div class="panel-meta">
+          Completed: <span id="completedCount">0</span> / <span id="totalRounds">0</span>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <script src="timer.js"></script>
+</body>
+</html>
