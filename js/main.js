@@ -25,7 +25,7 @@ function createParticles() {
       y: Math.random() * canvas.height,
       radius: Math.random() * 12 + 8,
       color: Math.random() < 0.5 ? 'white' : '#2EE6FF',
-      speedX: (Math.random() - 0.5) * 0.5,
+      speedX: (Math.random() - 0.5) * 1,
       speedY: (Math.random() - 0.5) * 0.5
     });
   }
