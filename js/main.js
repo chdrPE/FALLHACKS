@@ -1,61 +1,95 @@
-const canvas = document.getElementById('bg-canvas');
+// === StreakIn Theme: Blue background + cyan & white particles ===
+
+// Set background color
+document.body.style.backgroundColor = '#0A2540'; // deep blue
+
+// Create canvas for particles
+const canvas = document.createElement('canvas');
+canvas.style.position = 'fixed';
+canvas.style.top = '0';
+canvas.style.left = '0';
+canvas.style.width = '100%';
+canvas.style.height = '100%';
+canvas.style.zIndex = '-1';
+canvas.style.pointerEvents = 'none';
+document.body.appendChild(canvas);
+
 const ctx = canvas.getContext('2d');
-let width = canvas.width = window.innerWidth;
-let height = canvas.height = window.innerHeight;
+let particles = [];
 
-const circles = [];
-const colors = ['#ff851b', '#ff3c00', '#ff6f00', '#ff4500'];
+function resizeCanvas() {
+  canvas.width  = document.documentElement.scrollWidth;
+  canvas.height = document.documentElement.scrollHeight;
+}
 
-function createCircles(num) {
-  for (let i = 0; i < num; i++) {
-    circles.push({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      radius: Math.random() * 20 + 5,
-      dx: (Math.random() - 0.5) * 1.5,
-      dy: (Math.random() - 0.5) * 1.5,
-      color: colors[Math.floor(Math.random() * colors.length)],
-      alpha: Math.random() * 0.5 + 0.3
+window.addEventListener('resize', resizeCanvas);
+window.addEventListener('scroll', resizeCanvas);
+resizeCanvas();
+
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+
+// Create particles (white & cyan)
+function createParticles() {
+  particles = [];
+  const numParticles = 50;
+  for (let i = 0; i < numParticles; i++) {
+    particles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      radius: Math.random() * 10 + 5,
+      color: Math.random() < 0.5 ? 'white' : '#2EE6FF', // mix of white and cyan
+      speedX: (Math.random() - 0.5) * 0.5,
+      speedY: (Math.random() - 0.5) * 0.5
     });
   }
 }
+createParticles();
 
-function animate() {
-  // Fill background with black on every frame
-  ctx.fillStyle = '#000000';
-  ctx.fillRect(0, 0, width, height);
+// Animate particles
+function animateParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  circles.forEach(c => {
+  for (let p of particles) {
     ctx.beginPath();
-    ctx.arc(c.x, c.y, c.radius, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(${hexToRgb(c.color)},${c.alpha})`;
+    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+    ctx.fillStyle = p.color;
     ctx.fill();
 
-    c.x += c.dx;
-    c.y += c.dy;
+    p.x += p.speedX;
+    p.y += p.speedY;
 
-    if (c.x < -c.radius) c.x = width + c.radius;
-    if (c.x > width + c.radius) c.x = -c.radius;
-    if (c.y < -c.radius) c.y = height + c.radius;
-    if (c.y > height + c.radius) c.y = -c.radius;
-  });
+    // Bounce particles softly off edges
+    if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
+    if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
+  }
 
-  requestAnimationFrame(animate);
+  requestAnimationFrame(animateParticles);
 }
+animateParticles();
 
-function hexToRgb(hex) {
-  hex = hex.replace('#','');
-  const bigint = parseInt(hex,16);
-  const r = (bigint >> 16) & 255;
-  const g = (bigint >> 8) & 255;
-  const b = bigint & 255;
-  return `${r},${g},${b}`;
-}
+// Optional: style buttons to match theme
+const style = document.createElement('style');
+style.textContent = `
+  .streakin-header {
+    background: #0D2E57; /* darker blue for header */
+    color: white;
+  }
 
-createCircles(60);
-animate();
+  .streakin-lockin-btn, .streakin-submit-btn {
+    background: #2EE6FF; /* cyan */
+    color: #0A2540;      /* dark blue text */
+  }
 
-window.addEventListener('resize', () => {
-  width = canvas.width = window.innerWidth;
-  height = canvas.height = window.innerHeight;
-});
+  .streakin-lockin-btn:hover, .streakin-submit-btn:hover {
+    filter: brightness(0.9);
+  }
+
+  .streakin-container {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+  }
+`;
+document.head.appendChild(style);

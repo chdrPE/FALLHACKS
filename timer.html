@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>StreakIn — Study Timer</title>
+  <link rel="stylesheet" href="css/style-timer.css" />
+</head>
+<body>
+  <section class="hero">
+    <!-- your animated background -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- overlay content -->
+    <div class="overlay">
+      <main class="apple-wrap">
+        <!-- Timer panel -->
+        <section class="apple-panel">
+          <div class="ring-wrap">
+            <!-- 360x360 ring, stroke=20 => r=170 -->
+            <svg width="360" height="360" viewBox="0 0 360 360" class="ring">
+              <circle cx="180" cy="180" r="170" class="track" />
+              <circle id="progress" cx="180" cy="180" r="170" class="progress" />
+            </svg>
+            <div class="center">
+              <div id="time" class="time">40:00</div>
+              <div id="roundLabel" class="subtle">Round 1</div>
+            </div>
+          </div>
+
+          <div class="controls">
+            <button id="startPause" class="btn-primary">Start</button>
+            <button id="reset" class="btn-plain">Reset</button>
+            <button id="next" class="btn-accent">Next</button>
+
+            <button id="sound" class="btn-plain" aria-pressed="true">Sound: ON</button>
+            <label class="toggle">
+              <input type="checkbox" id="autopause" checked />
+              <span>Auto-pause on tab change</span>
+            </label>
+          </div>
+
+          <p id="pauseReason" class="notice hidden">Paused — tab/screen changed</p>
+          <p class="hint">Shortcuts: <kbd>Space</kbd> start/pause · <kbd>R</kbd> reset · <kbd>N</kbd> next</p>
+        </section>
+
+        <!-- Rounds panel -->
+        <aside class="apple-panel side">
+          <h2>Rounds</h2>
+          <ul id="rounds" class="rounds"></ul>
+          <div class="meta">Completed: <strong id="completed">0</strong> / <span id="total">3</span></div>
+        </aside>
+      </main>
+    </div>
+  </section>
+
+  <!-- your animated bg script + the timer logic -->
+  <script src="js/main.js"></script>
+  <script src="js/timer.js" defer></script>
+</body>
+</html>
