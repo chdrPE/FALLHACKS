@@ -1,0 +1,62 @@
+```css
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Colors */
+:root {
+  --navy: #001f3f;
+  --orange: #ff851b;
+  --black: #111;
+  --white: #fff;
+}
+
+/* Full-page hero */
+body, html {
+  height: 100%;
+  font-family: 'Arial', sans-serif;
+}
+
+.hero {
+  height: 100vh;
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.overlay {
+  color: var(--white);
+}
+
+.title {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  letter-spacing: 2px;
+}
+
+/* Button styles */
+.btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: var(--orange);
+  color: var(--white);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: var(--white);
+  color: var(--navy);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+```
