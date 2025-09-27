@@ -1,4 +1,4 @@
-```css
+
 /* General Reset */
 * {
   margin: 0;
@@ -59,4 +59,3 @@ body, html {
   color: var(--navy);
   box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
-```
