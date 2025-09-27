@@ -1,46 +1,55 @@
-
-/* General Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Colors */
 :root {
-  --navy: #001f3f;
+  --navy: #001f3f;   /* not needed for background anymore, but keep for accents */
   --orange: #ff851b;
-  --black: #111;
+  --red: #ff3c00;    /* fire red */
+  --black: #000;      /* site background */
   --white: #fff;
 }
 
-/* Full-page hero */
 body, html {
   height: 100%;
-  font-family: 'Arial', sans-serif;
+  font-family: Arial, sans-serif;
+  background: var(--black);  /* entire site background black */
 }
 
+/* Hero Section */
 .hero {
+  position: relative;
   height: 100vh;
-  background: var(--navy);
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  position: relative;
-}
-
-.overlay {
   color: var(--white);
 }
 
-.title {
-  font-size: 3rem;
-  margin-bottom: 2rem;
-  letter-spacing: 2px;
+/* rest remains same */
+#bg-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }
 
-/* Button styles */
+.overlay {
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+  text-shadow: 0 0 15px rgba(255, 140, 0, 0.8); /* glowing effect for fire theme */
+}
+
+.title .cursive {
+  font-family: 'Pacifico', cursive;
+}
+
 .btn {
   display: inline-block;
   padding: 1rem 2.5rem;
@@ -56,6 +65,6 @@ body, html {
 
 .btn:hover {
   background: var(--white);
-  color: var(--navy);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  color: var(--black);
+  box-shadow: 0 4px 15px rgba(255, 69, 0, 0.5); /* fire glow on hover */
 }
