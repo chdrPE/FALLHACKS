@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>StreakIn | Registration</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <div class="streakin-container">
+    <h1 class="streakin-title">Registration</h1>
+
+    <form id="streakin-registration-form" class="streakin-form">
+      <div class="streakin-form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+
+      <div class="streakin-form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="streakin-form-group">
+        <label for="nickname">Nickname</label>
+        <input type="text" id="nickname" name="nickname" required>
+      </div>
+
+      <div class="streakin-form-group">
+        <label for="university">University</label>
+        <input type="text" id="university" name="university" required>
+      </div>
+
+      <div class="streakin-form-group">
+        <label for="course">Course Load</label>
+        <input type="text" id="course" name="course" required>
+      </div>
+
+      <div class="streakin-form-group">
+        <label for="difficulty">Study Intensity</label>
+        <select id="difficulty" name="difficulty" required>
+          <option value="" disabled selected>Select difficulty</option>
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+      </div>
+
+      <div class="streakin-form-group">
+        <label for="mehod">Study Method</label>
+        <select id="method" name="method" required>
+            <option value="" disabled selected>Select study method</option>
+            <option value="Pomodoro">Pomodoro</option>
+            <option value="Feynman">Feynman</option>
+            <option value="Acitve Recall">Active Recall</option>
+        </select>
+      </div>
+
+      <button type="submit" class="streakin-submit-btn">Register</button>
+    </form>
+  </div>
+
+</body>
+</html>
