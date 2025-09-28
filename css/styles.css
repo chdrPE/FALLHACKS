@@ -5,7 +5,7 @@
   --white: #ffffff;
 }
 
-/* ========== GLOBAL ========== */
+/*  GLOBAL */
 html, body {
   height: 100%;
   margin: 0;
@@ -20,9 +20,9 @@ a {
   text-decoration: none;
 }
 
-/* ========== HEADER ========== */
+/* HEADER */
 .streakin-header {
-  background: transparent;
+  background: var(--header-dark);
   color: var(--white);
   display: flex;
   justify-content: space-between;
@@ -44,7 +44,7 @@ a {
 }
 
 .streakin-logo {
-  height: 150px;            /* ✅ fixed size so it doesn’t overflow */
+  height: 150px;         
   width: auto;
   object-fit: contain;
   display: block;
@@ -68,13 +68,13 @@ a {
   transform: scale(1.05);
 }
 
-/* ========== HERO SECTION ========== */
+/* HERO SECTION */
 .hero {
   position: relative;
   height: 100vh;
-  padding-top: 100px; /* space for header */
+  padding-top: 100px; 
   display: flex;
-  flex-direction: column;   /* stack vertically */
+  flex-direction: column;  
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -114,7 +114,7 @@ a {
   box-shadow: 0 4px 15px rgba(46, 230, 255, 0.5);
 }
 
-/* ========== BACKGROUND CANVAS ========== */
+/* BACKGROUND CANVAS */
 #bg-canvas {
   position: fixed;
   top: 0;
@@ -125,7 +125,7 @@ a {
   pointer-events: none;
 }
 
-/* ========== INFO SECTION ========== */
+/* INFO SECTION */
 .streakin-info-section {
   display: flex;
   justify-content: space-between;
@@ -169,7 +169,7 @@ a {
   box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
 
-/* ========== RESPONSIVE ========== */
+/* RESPONSIVE */
 @media (max-width: 800px) {
   .title {
     font-size: 2.8rem;

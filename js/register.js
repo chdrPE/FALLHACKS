@@ -4,7 +4,6 @@ let width = canvas.width = window.innerWidth;
 let height = canvas.height = window.innerHeight;
 
 const circles = [];
-// switched to cyan glow palette
 const colors = ['#2EE6FF', '#1AC1E0', '#00B4D8', '#90E0EF'];
 
 function createCircles(num) {
@@ -22,7 +21,7 @@ function createCircles(num) {
 }
 
 function animate() {
-  ctx.fillStyle = '#0A2540'; // deep blue background
+  ctx.fillStyle = '#0A2540'; 
   ctx.fillRect(0, 0, width, height);
 
   circles.forEach(c => {

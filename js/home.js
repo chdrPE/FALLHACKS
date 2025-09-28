@@ -1,4 +1,4 @@
-console.log("[home.js] loaded ✅"); // Helps confirm the file is actually loading
+console.log("[home.js] loaded ✅"); 
 
 // Background animation
 const canvas = document.getElementById('bg-canvas');
@@ -36,7 +36,7 @@ function format12(d) { let h = d.getHours(); const m = d.getMinutes(); const amp
 function updateClock() { clockEl.textContent = format12(new Date()); }
 updateClock(); setInterval(updateClock, 1000);
 
-// Demo state (replace with real data)
+// Demo state
 const state = {
   weeklyGoalHours: 22,
   hoursStudiedThisWeek: 8.5,
@@ -74,7 +74,7 @@ function renderActivity() {
 }
 renderActivity();
 
-// Friends — hydrate/replace placeholders with animated bars
+// Friends 
 const friendsList = document.getElementById('friends-list');
 function pctFromWeeks(weeks) { const avg = weeks.reduce((a,b)=>a+b,0)/weeks.length; return Math.max(0, Math.min(100, Math.round(avg*100))); }
 function makeFriendRow(f) {
@@ -90,12 +90,8 @@ function makeFriendRow(f) {
 }
 function renderFriends() {
   if (!friendsList) return;
-  friendsList.innerHTML = ''; // replace placeholders
+  friendsList.innerHTML = ''; 
   state.friends.forEach(f => friendsList.appendChild(makeFriendRow(f)));
 }
 renderFriends();
 
-// Interactions
-document.getElementById('start-btn').addEventListener('click', () => {
-  alert('Starting your focus session… \n(Connect this to your Pomodoro / timer page)');
-});

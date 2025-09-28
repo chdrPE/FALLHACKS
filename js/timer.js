@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let height = canvas.height = window.innerHeight;
 
   const circles = [];
-  const colors = ['#5697a8ff', '#a6b6c8ff', '#10aee8ff', '#ffffffff']; // paleta cálida
+  const colors = ['#5697a8ff', '#a6b6c8ff', '#10aee8ff', '#ffffffff']; 
   function createCircles(num){
     for(let i=0;i<num;i++){
       circles.push({
@@ -32,10 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   function animateBg(){
     ctx.clearRect(0,0,width,height);
-    // capa base (azul profundo, consistente con --blue-bg)
     ctx.fillStyle = '#0A2540';
     ctx.fillRect(0,0,width,height);
-    // blend suave de luces
     ctx.globalCompositeOperation = 'lighter';
     circles.forEach(c=>{
       c.x += c.dx; c.y += c.dy;
@@ -59,7 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* ========= B) TIMER CIRCULAR ========= */
-  // --- Configurable (edita aquí las duraciones) ---
   const rounds = [
     { label: "Round 1", minutes: 20 },
     { label: "Round 2", minutes: 40 },
@@ -87,10 +84,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- Anillo SVG ---
   const progressEl = document.getElementById("progress");
-  const R = parseFloat(progressEl.getAttribute("r")); // 170
+  const R = parseFloat(progressEl.getAttribute("r")); 
   const C = 2 * Math.PI * R;
   progressEl.style.strokeDasharray = C;
-  progressEl.style.strokeDashoffset = C; // empieza vacío
+  progressEl.style.strokeDashoffset = C;
 
   // --- Audio (WebAudio) ---
   let audioCtx = null;

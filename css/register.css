@@ -1,8 +1,8 @@
 :root {
-    --blue-bg: #0A2540;      /* deep blue background */
-    --cyan: #2EE6FF;         /* accent cyan */
+    --blue-bg: #0A2540;     
+    --cyan: #2EE6FF;        
     --white: #ffffff;
-    --header-dark: #0D2E57;  /* slightly darker blue */
+    --header-dark: #0D2E57;  
 }
 
 * {
@@ -22,9 +22,8 @@ body {
     overflow: hidden;
 }
 
-/* =========================
-   Background Canvas
-   ========================= */
+/*Background Canvas*/
+
 #bg-canvas {
     position: absolute;
     top: 0;
@@ -34,9 +33,7 @@ body {
     z-index: 0;
 }
 
-/* =========================
-   Registration Container
-   ========================= */
+/* Registration Container */
 .streakin-container {
     position: relative;
     z-index: 1;
@@ -48,9 +45,7 @@ body {
     box-shadow: 0 0 25px rgba(46, 230, 255, 0.5);
 }
 
-/* =========================
-   Title
-   ========================= */
+/* Title */
 .streakin-title {
     text-align: center;
     margin-bottom: 1.5rem;
@@ -59,9 +54,7 @@ body {
     text-shadow: 0 0 12px rgba(46, 230, 255, 0.7);
 }
 
-/* =========================
-   Form Styles
-   ========================= */
+/* Form Styles */
 .streakin-form {
     display: flex;
     flex-direction: column;
@@ -96,7 +89,7 @@ body {
     font-size: 1rem;
     transition: all 0.2s ease;
     box-sizing: border-box;
-    appearance: none; /* minimal style */
+    appearance: none;
 }
 
 .streakin-form-group input:focus,
@@ -106,9 +99,7 @@ body {
     box-shadow: 0 0 10px rgba(46, 230, 255, 0.6);
 }
 
-/* =========================
-   Submit Button
-   ========================= */
+/* Submit Button */
 .streakin-submit-btn {
     width: 100%;
     max-width: 500px;
